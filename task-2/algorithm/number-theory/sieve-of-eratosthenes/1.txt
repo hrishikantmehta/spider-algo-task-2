@@ -1,0 +1,31 @@
+https://www.geeksforgeeks.org/sieve-of-eratosthenes/
+
+#include<iostream>
+using namespace std;
+#define TRUE 0
+#define FALSE 1
+void soe(int n)
+{
+    int isPrime[n+1]={0};
+
+    for(int i=2;i*i<=n;i++)
+    {
+        if(isPrime[i]==TRUE)
+        {
+            for(int j=i*i;j<=n;j+=i)
+                isPrime[j]=FALSE;
+        }
+    }
+    for(int i=2;i<=n;i++)
+    {
+        if(isPrime[i]==TRUE)
+            cout<<i<<" ";
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    soe(n);
+    return 0;
+}

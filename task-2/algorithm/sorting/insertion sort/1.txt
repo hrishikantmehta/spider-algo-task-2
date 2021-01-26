@@ -1,0 +1,26 @@
+https://www.hackerrank.com/challenges/insertionsort1/problem
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int ar[n];
+    for(int i=0;i<n;i++)
+        cin>>ar[i];
+    int i=n-2;
+    int temp=ar[n-1];
+    while(temp<ar[i])
+    {
+        ar[i+1]=ar[i];
+        i--;
+        for(int j=0;j<n;j++)
+            cout<<ar[j]<<" ";
+        cout<<endl;
+    }
+    ar[i+1]=temp;
+    for(int j=0;j<n;j++)
+            cout<<ar[j]<<" ";
+    return 0;
+}

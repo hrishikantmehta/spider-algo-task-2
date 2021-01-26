@@ -1,0 +1,24 @@
+https://practice.geeksforgeeks.org/problems/searching-a-number0324/1
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    int ar[n];
+    for(int i=0;i<n;i++)
+        cin>>ar[i];
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(k==ar[i])
+            break;
+    }
+    if(i==n)
+        cout<<-1;
+    else
+        cout<<i+1;
+    
+    return 0;
+}

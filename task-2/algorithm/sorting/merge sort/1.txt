@@ -1,0 +1,70 @@
+https://practice.geeksforgeeks.org/problems/merge-sort/1
+
+#include<iostream>
+using namespace std;
+void merge(int ar[],int l,int m,int r)
+{
+    int left[m-l+1],right[r-m];
+    int lIndex=0,rIndex=0;
+    for(int i=l;i<=m;i++)
+    {
+        left[lIndex]=ar[i];
+        lIndex++;
+    }
+    for(int i=m+1;i<=r;i++)
+    {
+        right[rIndex]=ar[i];
+        rIndex++;
+    }
+    int i=l;
+    lIndex=0;rIndex=0;
+    while(lIndex<=m-l && rIndex<=r-m-1)
+    {
+        if(left[lIndex]<right[rIndex])
+        {
+            ar[i]=left[lIndex];
+            lIndex++;
+            i++;
+        }
+        if(right[rIndex]<left[lIndex])
+        {
+            ar[i]=right[rIndex];
+            rIndex++;
+            i++;
+        }
+    }
+    while(lIndex<=m-l)
+    {
+        ar[i]=left[lIndex];
+        lIndex++;
+        i++;
+    }
+    while(rIndex<=r-m-1)
+    {
+        ar[i]=right[rIndex];
+        rIndex++;
+        i++;
+    }
+}
+void mergeSort(int ar[],int l,int r)
+{
+    if(l<r)
+    {
+        int mid=(l+r)/2;
+        mergeSort(ar,l,mid);
+        mergeSort(ar,mid+1,r);
+        merge(ar,l,mid,r);
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int ar[n];
+    for(int i=0;i<n;i++)
+        cin>>ar[i];
+    mergeSort(ar,0,n-1);
+    for(int i=0;i<n;i++)
+        cout<<ar[i]<<" ";
+    return 0;
+}

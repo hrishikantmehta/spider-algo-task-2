@@ -1,0 +1,32 @@
+https://www.hackerearth.com/practice/algorithms/sorting/bubble-sort/practice-problems/algorithm/sort-it-out/description/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	int ar[n],index[n];
+	for(int i=0;i<n;i++){
+		cin>>ar[i];
+		index[i]=i;
+	}
+	for(int i=0;i<n-1;i++)
+	{
+		for(int j=0;j<n-1-i;j++)
+		{
+			if(ar[j]>ar[j+1])
+			{
+				int temp=ar[j];
+				ar[j]=ar[j+1];
+				ar[j+1]=temp;
+				temp=index[j];
+				index[j]=index[j+1];
+				index[j+1]=temp;
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+		cout<<index[i]<<" ";
+	return 0;
+}

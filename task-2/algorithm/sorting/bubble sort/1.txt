@@ -1,0 +1,46 @@
+https://www.hackerearth.com/practice/algorithms/sorting/bubble-sort/practice-problems/algorithm/min-max-difference/description/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int m,n;
+		cin>>n>>m;
+		int ar[n];
+		for(int i=0;i<n;i++)
+			cin>>ar[i];
+		int max=0,min=0;
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n-1;j++)
+			{
+				if(ar[j]>ar[j+1])
+				{
+					int temp=ar[j];
+					ar[j]=ar[j+1];
+					ar[j+1]=temp;
+				}
+			}
+			max+=ar[n-1-i];
+		}
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n-1;j++)
+			{
+				if(ar[j]<ar[j+1])
+				{
+					int temp=ar[j];
+					ar[j]=ar[j+1];
+					ar[j+1]=temp;
+				}
+			}
+			min+=ar[n-1-i];
+		}
+		cout<<max-min<<endl;
+	}
+	return 0;
+}
